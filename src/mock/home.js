@@ -1,5 +1,7 @@
 import Mock from 'mockjs';
 
+
+let List = []
 export default {
     getOrderData: () => {
         return {
@@ -47,6 +49,18 @@ export default {
         }
     },
     getTableData: () => {
+        for (let i=0; i<7;i++){
+            List.push(Mock.mock({
+                python: Mock.Random.float(100, 8000, 0, 2),
+                java: Mock.Random.float(100, 8000, 0, 2),
+                "c++": Mock.Random.float(100, 8000, 0, 2),
+                'c#': Mock.Random.float(100, 8000, 0, 2),
+                goland: Mock.Random.float(100, 8000, 0, 2),
+                'vue.js': Mock.Random.float(100, 8000, 0, 2),
+                'django': Mock.Random.float(100, 8000, 0, 2),
+            }));
+        }
+
         return {
             code: 20000,
             data: {
@@ -93,7 +107,11 @@ export default {
                         month: Mock.Random.float(500, 5000, 0, 2),
                         total: Mock.Random.float(10000, 100000, 0, 2),
                     }
-                ]
+                ],
+                orderData: {
+                    date: ['20191001','20191002','20191003','20191004','20191005','20191006','20191007'],
+                    data: List
+                }
             }
         }
     }

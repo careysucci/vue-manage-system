@@ -38,7 +38,7 @@
                 </el-card>
             </div>
             <el-card shadow="hover">
-                <echart style="height: 280px">
+                <echart style="height: 280px" :chartData="echartData.order">
 
                 </echart>
             </el-card>
@@ -86,12 +86,29 @@
                 }
             }
         },
+        methods: {
+            getStatiasData(){
+                this.$http.get('/home/getTableData').then(res => {
+                    this.tableData = res.data.data.tabledata;
+                    let echarData = res.data.data;
+                    this.echartData.order.xData = echarData.orderData.date;
+                    let keyArray = Object.keys(echarData.orderData.data[0]);
+                    keyArray.forEach(key => {
+                        this.echartData.order.series.push({
+                            name: key,
+                            data: echarData.orderData.data.map(item => item[key]),
+                            type: 'line'
+                        })
+                    })
+                });
+            }
+        },
+        created(){
+            this.getStatiasData();
+        },
         mounted() {
             this.$http.get('/home/getOrderData').then(res => {
                 this.orderData = res.data.data.orderData;
-            });
-            this.$http.get('/home/getTableData').then(res => {
-                this.tableData = res.data.data.tabledata;
             });
         }
     }
