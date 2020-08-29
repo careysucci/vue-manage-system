@@ -39,12 +39,31 @@
             return {
                 echart: null,
                 axisOption: {
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: this.chartData.series.forEach(item => item.name)
+                    },
                     xAxis: {
+                        axisLine: {
+                            lineStyle: {
+                                color: '#17b3a3'
+                            }
+                        },
+                        axisLabel: {
+                            color: '#010a0f'
+                        },
                         type: 'category',
                         data: []
                     },
                     yAxis: [
                         {
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#17b3a3'
+                                }
+                            },
                             type: 'value'
                         }
                     ]
@@ -52,7 +71,10 @@
                     series: []
                 },
                 normalOption: {
-                    series: []
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    series: [],
                 }
             }
         },

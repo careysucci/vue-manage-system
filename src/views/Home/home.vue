@@ -44,10 +44,14 @@
             </el-card>
             <div class="graph">
                 <el-card shadow="hover">
-                    <echart style="height: 260px"></echart>
+                    <echart style="height: 260px" :chartData="echartData.user">
+
+                    </echart>
                 </el-card>
                 <el-card shadow="hover">
-                    <echart style="height: 260px"></echart>
+                    <echart style="height: 260px" :chart-data="echartData.video" :is-axis-chart="false">
+
+                    </echart>
                 </el-card>
             </div>
         </el-col>
@@ -99,6 +103,26 @@
                             data: echarData.orderData.data.map(item => item[key]),
                             type: 'line'
                         })
+                    });
+                    console.log(echarData.userData.forEach(item => item.active));
+                    // 用户活跃数
+                    this.echartData.user.xData = echarData.userData.map(item => item.date);
+                    this.echartData.user.series.push({
+                        name: '新增用户',
+                        type: 'bar',
+                        barGap: 0,
+                        data: echarData.userData.map(item => item.new)
+                    });
+                    this.echartData.user.series.push({
+                        name: '活跃用户',
+                        type: 'bar',
+                        data: echarData.userData.map(item => item.active)
+                    });
+
+                    // 视频
+                    this.echartData.video.series.push({
+                        data: echarData.videoData,
+                        type: 'pie'
                     })
                 });
             }

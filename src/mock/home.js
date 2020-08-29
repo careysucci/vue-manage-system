@@ -111,7 +111,69 @@ export default {
                 orderData: {
                     date: ['20191001','20191002','20191003','20191004','20191005','20191006','20191007'],
                     data: List
-                }
+                },
+                userData: [
+                    {
+                        date: '星期一',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },
+                    {
+                        date: '星期二',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },{
+                        date: '星期三',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },{
+                        date: '星期四',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },{
+                        date: '星期五',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },{
+                        date: '星期六',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },{
+                        date: '星期七',
+                        new: Mock.Random.integer(1,100),
+                        active: Mock.Random.integer(100, 1000)
+                    },
+                ],
+                videoData: [
+                    {
+                        name: 'python',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'java',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'c++',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'c#',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'goland',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'vue.js',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                    {
+                        name: 'django',
+                        value: Mock.Random.float(1000, 10000, 0, 2)
+                    },
+                ]
             }
         }
     }
