@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 
 
-let List = []
+let List = [];
 export default {
     getOrderData: () => {
         return {

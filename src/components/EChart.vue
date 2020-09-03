@@ -25,6 +25,9 @@
         computed: {
             options(){
                 return this.isAxisChart ? this.axisOption: this.normalOption;
+            },
+            isCollaspe(){
+                return this.$store.state.tab.isCollapse;
             }
         },
         watch: {
@@ -33,6 +36,13 @@
                     this.initChart();
                 },
                 deep: true
+            },
+            isCollaspe: {
+                handler: function () {
+                    setTimeout(() => {
+                        this.resize();
+                    }, 300)
+                }
             }
         },
         data(){
@@ -95,7 +105,16 @@
                 } else {
                     this.normalOption.series = this.chartData.series;
                 }
+            },
+            resize(){
+                this.echart ? this.echart.resize(): "";
             }
+        },
+        mounted() {
+            window.addEventListener('resize', this.resize);
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.resize)
         }
     }
 </script>

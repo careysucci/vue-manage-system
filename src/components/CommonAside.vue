@@ -7,6 +7,8 @@
             active-text-color="#ffd04b"
             :router="true"
             :collapse="isCollapse">
+        <h3 v-show="!isCollapse">滴滴管理系统</h3>
+        <h3 v-show="isCollapse">滴滴</h3>
 
         <el-menu-item :index="item.path" v-for="item in noChildren" :key="item.path" @click="clickMenu(item)">
             <i :class="'el-icon-'+ item.icon"></i>
@@ -94,6 +96,13 @@
     .el-menu {
         height: 100%;
         border: none;
+
+        h3 {
+            font-size: 15px;
+            margin-top: 20px;
+            margin-left: 20px;
+            color: #ffffff;
+        }
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
