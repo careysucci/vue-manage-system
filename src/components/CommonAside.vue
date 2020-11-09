@@ -33,55 +33,21 @@
     export default {
         computed: {
             noChildren() {
-                return this.aside.filter(item => !item.children);
+                return this.menu.filter(item => !item.children);
             },
             hasChildren() {
-                return this.aside.filter(item => item.children);
+                return this.menu.filter(item => item.children);
             },
             isCollapse() {
                 return this.$store.state.tab.isCollapse;
+            },
+            menu(){
+                return this.$store.state.tab.menu;
             }
         },
         data() {
             return {
-                aside: [
-                    {
-                        path: '/',
-                        label: '首页',
-                        name: 'home',
-                        icon: 's-home'
-                    },
-                    {
-                        path: '/video',
-                        label: '视频管理',
-                        name: 'video',
-                        icon: 'video-play'
-                    },
-                    {
-                        path: '/user',
-                        label: '用户管理',
-                        name: 'user',
-                        icon: 'user'
-                    },
-                    {
-                        label: '其他',
-                        icon: 's-help',
-                        children: [
-                            {
-                                path: '/page1',
-                                label: '页面1',
-                                name: 'page1',
-                                icon: 'house'
-                            },
-                            {
-                                path: '/page2',
-                                label: '页面2',
-                                name: 'page2',
-                                icon: 'house'
-                            }
-                        ]
-                    }
-                ]
+
             }
         },
         methods: {

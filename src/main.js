@@ -14,6 +14,11 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.prototype.$http = http;
 
+// router.beforeEach((to, from, next) => {
+//   store.commit('addMenu');
+//   next();
+// });
+
 new Vue({
   router,
   store,
